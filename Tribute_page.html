@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Neil Armstrong</title>
+    <meta name="viewport" content="width=device-width">
+    <style>
+      *{
+        box-sizing: border-box;
+      }
+
+      html{
+        scroll-behavior: smooth;
+      }
+
+      body{
+        background-color: black;
+        color: white;
+        margin: 0;
+      }
+
+      h1,h2,h3,h4,h5,h6 {
+        text-transform: uppercase;
+      }
+
+      #main{
+        border: 1px solid transparent;
+      }
+
+      .flex-container1{
+        display: flex;
+        background-color: #fff;
+        color: #000;
+        margin: 20px;
+      }
+
+      .flex-img-div{
+        flex: 0 0 41.66%;
+        max-width: 41.66%;
+      }
+
+      .flex-details-div{
+        flex: 0 0 58.33%;
+        max-width: 58.33%;
+      }
+
+      .flex-img-div img{
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .flex-details-div .head{
+        padding: 0px 15px 15px 15px;
+      }
+
+      .flex-details-div a{
+        color: black;
+        text-decoration: none;
+      }
+
+      .flex-details-div h1{
+        font-size: 60px;
+      }
+
+      .flex-container2{
+        display: flex;
+        justify-content: space-between;
+        overflow: auto;
+        padding: 25px 15px 15px 15px;
+      }
+
+      .card{
+        flex: 0 0 22%;
+        border: 1px solid #eee;
+      }
+
+      .card a{
+        display: block;
+        color: black;
+        text-decoration: none;
+      }
+
+      .card .card-img{
+        display: block;
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        opacity: 0.8;
+      }
+
+      .card .card-title{
+        height: 80px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .card:hover{
+        box-shadow: 0 0 10px rgba(0,0,255,0.2);
+      }
+
+      .card:hover .card-img{
+        opacity: 1;
+      }
+
+      @media only screen and (max-width: 820px){
+        .flex-container1{
+          flex-wrap: wrap;
+        }
+
+        .flex-img-div, .flex-details-div{
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+
+        .flex-details-div h1{
+          font-size: 10vw;
+        }
+
+      }
+
+      #first-moonwalk{
+        padding: 20px;
+      }
+
+      #timeline{
+        padding: 0px 20px 20px 20px;
+      }
+
+      .timeline-text{
+        font-size: 18px;
+      }
+
+      .flex-container3{
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 350px;
+        overflow: auto;
+        padding-bottom: 20px;
+      }
+
+      .flex-item{
+        background-color: #1d1135;
+        color: white;
+        flex: 0 0 22%;
+        height: 200px;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 15px;
+        overflow: auto;
+      }
+
+      .flex-item:nth-child(odd){
+        align-self: flex-start;
+      }
+
+      .flex-item:nth-child(even){
+        align-self: flex-end;
+      }
+
+      .flex-item::before{
+        content: '';
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 2px;
+        background-color: grey;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .flex-item:hover{
+        box-shadow: 0 0 20px rgba(0,0,255,0.4);
+      }
+
+      @media screen and (max-width: 700px){
+        .flex-container3{
+          position: relative;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+        }
+
+        .flex-item{
+          width: 80%;
+          padding: 10px;
+          margin: 10px;
+          border-radius: 10px;
+        }
+
+        .flex-item:nth-child(odd){
+          align-self: center;
+        }
+
+        .flex-item:nth-child(even){
+          align-self: center;
+        }
+
+        .flex-item::before{
+          content: '';
+          position: absolute;
+          z-index: -1;
+          width: 2px;
+          height: 100%;
+          background-color: grey;
+          left: 50%;
+        }
+
+      }
+
+      ::-webkit-scrollbar {
+        width: 3px;
+        height: 3px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #000;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #f9f9f9;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #fafafa;
+      }
+
+      #image-gallery{
+        padding: 10px 20px 20px 20px;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 4px;
+      }
+
+      .column {
+        flex: 25%;
+        max-width: 25%;
+        padding: 0 4px;
+      }
+
+      .column img {
+        margin-top: 8px;
+        vertical-align: middle;
+      }
+
+      #image-gallery img:hover{
+        border: 1px solid white;
+      }
+
+      @media screen and (max-width: 800px){
+        .column{
+          flex: 50%;
+          max-width: 50%;
+        }
+      }
+
+      @media screen and (max-width: 600px){
+        .column{
+          flex: 100%;
+          max-width: 100%;
+        }
+      }
+
+      #find-more{
+        background-color: white;
+        color: black;
+        text-align: center;
+        padding: 20px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="main">
+
+      <div class="flex-container1">
+        <div class="flex-img-div">
+          <img src="Images/Neil-Armstrong01.png" alt="Neil Armstrong" title="Neil Armstrong";>
+        </div>
+
+        <div class="flex-details-div">
+          <div class="head">
+            <a href="#main"><h1>Neil Armstrong</h1></a>
+            <h4>"I put up my thumb and it blotted out the planet Earth."</h4>
+            <p>Neil Armstrong was a NASA astronaut most famous for being the first person to walk on the moon,
+              on July 20, 1969. Armstrong also flew on NASA's Gemini 8 mission in 1966. He retired from NASA
+              in 1971 and remained active in the aerospace community, although he chose to keep mostly out of
+              the public spotlight. Armstrong died Aug. 25, 2012, at age 82.</p>
+          </div>
+          <div class="flex-container2">
+            <div class="card">
+              <a href="#first-moonwalk">
+                <img class="card-img" src="Images/bg01.jpg" alt="bg">
+                <div class="card-title">First moonwalk</div>
+              </a>
+            </div>
+            <div class="card">
+              <a href="#timeline">
+                <img class="card-img" src="Images/bg02.jpg" alt="bg">
+                <div class="card-title">Timeline</div>
+              </a>
+            </div>
+            <div class="card">
+              <a href="#image-gallery">
+                <img class="card-img" src="Images/bg03.jpg" alt="bg">
+                <div class="card-title">Image Gallery</div>
+              </a>
+            </div>
+            <div class="card">
+              <a href="#find-more">
+                <img class="card-img" src="Images/bg04.jpg" alt="bg">
+                <div class="card-title">Find More</div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="first-moonwalk">
+        <h2>About Neil Armstrong</h2>
+
+        <p>
+          The Apollo 11 crew members were announced to the public in January 1969.
+          NASA's chief of the Astronaut Office, Donald Kent "Deke" Slayton, chose an all-veteran
+          team of Neil Armstrong (Gemini 8), Edwin "Buzz" Aldrin (Gemini 12) and Michael Collins (Gemini 10),
+          with Armstrong selected to command the mission. His responsibilities included landing on the moon
+          alongside Aldrin, the pilot of the lunar module Eagle. Collins would remain in lunar orbit aboard
+          the command module Columbia. (Collins was originally supposed to be backup pilot for Apollo 11, but
+          his spot in the flight sequence was moved after required surgery on his back forced him off the prime crew for Apollo 8.)
+        </p>
+
+        <p>
+          As the lander approached the moon, Armstrong took over the controls when he saw
+          that the computer was guiding them to a boulder-filled landing zone. At 4:14 p.m. EDT (2014 GMT),
+          Armstrong and Aldrin landed on the moon, with only 25 seconds of fuel left. Armstrong radioed, "Houston,
+          Tranquility Base here. The Eagle has landed." Capsule communicator and astronaut Charles Duke responded
+          from Earth: "Roger … Tranquility, we copy you on the ground. You got a bunch of guys about to turn blue.
+          We're breathing again. Thanks a lot."
+        </p>
+
+        <p>
+          The schedule called for the astronauts to sleep before the first moonwalk, but they elected to go
+          outside early because they felt they would not be able to sleep. In view of a black-and-white television
+          camera transmitting his movements live to Earth, Armstrong descended Eagle's lander and touched his left
+          foot upon the surface at 10:56 p.m. EDT July 20 (0256 GMT July 21). His first words were "That's one small
+          step for a man, one giant leap for mankind." (The "a" was lost to radio static, but later analysis of the
+          sound wave showed that Armstrong did say it.)
+        </p>
+
+        <p>
+          Armstrong and Aldrin together explored the surface during a moonwalk that lasted 2 hours and 36 minutes.
+          They collected 48.5 pounds (22 kilograms) of material from the surface — including 50 moon rocks — as well as
+          deploying experiments, planting the U.S. flag and taking a moment to speak with the U.S. president at the time, Richard Nixon.
+        </p>
+
+        <p>
+          The Eagle's crew lifted off safely from the moon on July 21, docked with Columbia, and voyaged back to Earth for a successful ocean landing on July 24.
+          The astronauts went into quarantine to mitigate the (unlikely) risk that they were carrying some sort of moon germs back with them, and then embarked on
+          a world tour to celebrate the mission.
+        </p>
+      </div>
+
+      <div id="timeline">
+        <h2>Timeline</h2>
+        <div class="flex-container3">
+          <div class="flex-item">
+            <h2 class="timeline-text">1930 - Neil Armstrong is born</h2>
+            <p>Neil was born on August 5, in Ohio.</p>
+          </div>
+          <div class="flex-item">
+            <h2 class="timeline-text">1946 - Neil flies</h2>
+            <p>Neil loved flying things from the time he was young. At sixteen years old he earned his student pilot's license.</p>
+          </div>
+          <div class="flex-item">
+            <h2 class="timeline-text">1947 - Neil goes to college</h2>
+            <p>Neil Armstrong joined the US Navy, and he attended Purdue on scholarship. He studied aeronautical engineering.</p>
+          </div>
+          <div class="flex-item">
+            <h2 class="timeline-text">1949 - Neil goes to war</h2>
+            <p>Neil Armstrong was called into action with the Navy to go fight in the Korean War. When that ended, he returned to college.</p>
+          </div>
+          <div class="flex-item">
+            <h2 class="timeline-text">1952 - Neil Armstrong joins NASA</h2>
+            <p>After returning from the war, Neil began working with the organization that would later be called NASA.</p>
+          </div>
+          <div class="flex-item">
+            <h2 class="timeline-text">1956 - Neil gets married</h2>
+            <p>Neil married a lady named Janet Shearon in 1956.</p>
+          </div>
+          <div class="flex-item">
+            <h2 class="timeline-text">1962 - Neil joins the astronaut program</h2>
+            <p>In 1962, Neil moved his family to Texas so he could work with the astronaut program.</p>
+          </div>
+          <div class="flex-item">
+            <h2 class="timeline-text">1966 - Neil goes to space</h2>
+            <p>Neil and his flight mate, David Scott, were launched into space to dock with the Gemini Agena vehicle. The dock was successful, but the mission had to be cut short.</p>
+          </div>
+          <div class="flex-item">
+            <h2 class="timeline-text">1969 - The moon mission</h2>
+            <p>Neil Armstrong, along with two other astronauts, landed on the moon. Armstrong drove the Lunar Module.</p>
+          </div>
+          <div class="flex-item">
+            <h2 class="timeline-text">1969 - Neil is awarded for his efforts</h2>
+            <p>Armstrong and his flight mates received many awards for their moon mission. Awards included the Medal of Freedom and the Congressional Space Medal of Honor.</p>
+          </div>
+          <div class="flex-item">
+            <h2 class="timeline-text">1971 - Armstrong leaves NASA</h2>
+            <p>Neil left NASA to become a professor in Ohio, at the University of Cincinnati.</p>
+          </div>
+          <div class="flex-item">
+            <h2 class="timeline-text">1986 - Neil Armstrong the investigator</h2>
+            <p>Neil helped investigate the failed space mission, the Challenger, in 1986. The Challenger blew up after launch, killing its crew.</p>
+          </div>
+          <div class="flex-item">
+            <h2 class="timeline-text">2006 - Neil Armstrong on 60 Minutes</h2>
+            <p>Neil liked to have his privacy, and he stayed out of the public eye for years. In 2006 he gave a TV interview on 60 Minutes, and later that year his biography came out.</p>
+          </div>
+          <div class="flex-item">
+            <h2 class="timeline-text">2010 - Armstrong speaks out</h2>
+            <p>In 2010, President Barack Obama made cuts to the space program. Neil Armstrong publically spoke out against this decision.</p>
+          </div>
+          <div class="flex-item">
+            <h2 class="timeline-text">2012 - Neil Armstrong dies</h2>
+            <p>Neil died at the age of 82, after complications from heart surgery.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="image-gallery">
+        <h2>Image Gallery</h2>
+        <div class="row">
+
+          <div class="column">
+            <img src="Images/img-gallery-neil-armstrong-00.jpg" alt="neil armstrong" style="width: 100%;">
+            <img src="Images/img-gallery-neil-armstrong-01.jpg" alt="neil armstrong" style="width: 100%;">
+            <img src="Images/img-gallery-neil-armstrong-13.jpg" alt="neil armstrong" style="width: 100%;">
+            <img src="Images/img-gallery-neil-armstrong-02.jpg" alt="neil armstrong" style="width: 100%;">
+          </div>
+
+          <div class="column">
+            <img src="Images/img-gallery-neil-armstrong-03.jpg" alt="neil armstrong" style="width: 100%;">
+            <img src="Images/img-gallery-neil-armstrong-04.jpg" alt="neil armstrong" style="width: 100%;">
+            <img src="Images/img-gallery-neil-armstrong-11.jpg" alt="neil armstrong" style="width: 100%;">
+            <img src="Images/img-gallery-neil-armstrong-05.jpg" alt="neil armstrong" style="width: 100%;">
+          </div>
+
+          <div class="column">
+            <img src="Images/img-gallery-neil-armstrong-06.jpg" alt="neil armstrong" style="width: 100%;">
+            <img src="Images/img-gallery-neil-armstrong-07.jpg" alt="neil armstrong" style="width: 100%;">
+            <img src="Images/img-gallery-neil-armstrong-08.jpg" alt="neil armstrong" style="width: 100%;">
+            <img src="Images/img-gallery-neil-armstrong-12.jpg" alt="neil armstrong" style="width: 100%;">
+          </div>
+
+          <div class="column">
+            <img src="Images/img-gallery-neil-armstrong-09.jpg" alt="neil armstrong" style="width: 100%;">
+            <img src="Images/img-gallery-neil-armstrong-10.jpg" alt="neil armstrong" style="width: 100%;">
+            <img src="Images/img-gallery-neil-armstrong-14.jpg" alt="neil armstrong" style="width: 100%;">
+          </div>
+
+        </div>
+      </div>
+
+      <div id="find-more">
+        If you have time you should read more about this incredible human being on <a href="https://en.wikipedia.org/wiki/Neil_Armstrong" target="_blank">Wikipedia</a>
+      </div>
+
+    </div>
+
+  </body>
+</html>
